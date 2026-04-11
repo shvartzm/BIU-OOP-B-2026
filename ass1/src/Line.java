@@ -89,9 +89,8 @@ public class Line {
    }
 
    /***
-    * helper method to calculate the y-intercept of the "infinite" line.
-    * representive of the line segmant using the formula
-    *
+    * Helper method to calculate the y-intercept of the "infinite" line.
+    * representive of the line segmant using the formula.
     * @return the y intercept of the line
     */
    private double yintercept() {
@@ -99,7 +98,7 @@ public class Line {
    }
 
    /**
-    * helper method to check if a certain point sits on a line.
+    * Helper method to check if a certain point sits on a line.
     *
     * @param x coordinate of the point
     * @param y coordinate of the point
@@ -131,8 +130,8 @@ public class Line {
                   || other.isPointOnLine(this.start.getX(), this.start.getY())
                   || other.isPointOnLine(this.end.getX(), this.end.getY());
          } else {
-            if (Math.abs(this.slope() - other.slope()) < EPSILON &&
-                  Math.abs(this.yintercept() - other.yintercept()) < EPSILON) {
+            if (Math.abs(this.slope() - other.slope()) < EPSILON
+                   && Math.abs(this.yintercept() - other.yintercept()) < EPSILON) {
                return this.isPointOnLine(other.start.getX(), other.start.getY())
                      || this.isPointOnLine(other.end.getX(), other.end.getY())
                      || other.isPointOnLine(this.start.getX(), this.start.getY())

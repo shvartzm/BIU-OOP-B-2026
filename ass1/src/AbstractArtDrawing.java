@@ -20,6 +20,9 @@ public class AbstractArtDrawing {
             lines[i] = l1;
             d.setColor(Color.BLACK);
             d.drawLine(x1, y1, x2, y2);
+            d.setColor(Color.BLUE);
+            Point middlePoint = l1.middle();
+            d.drawCircle((int)middlePoint.getX(), (int)middlePoint.getY(), 3);
         }
         gui.show(d);
     }

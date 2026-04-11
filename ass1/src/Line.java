@@ -21,7 +21,7 @@ public class Line {
    }
 
    /**
-    * Constructs a new line object using the coordinates of the ends of the line
+    * Constructs a new line object using the coordinates of the ends of the line.
     * segmant
     *
     * @param x1 is the x- coordinate of the first end
@@ -35,7 +35,7 @@ public class Line {
    }
 
    /**
-    * Calculates distance between the start and end point
+    * Calculates distance between the start and end point.
     *
     * @return the calculated distance
     */
@@ -44,7 +44,7 @@ public class Line {
    }
 
    /**
-    * Calculates the middle point by comparing the average of the x and y
+    * Calculates the middle point by comparing the average of the x and y.
     * coordinates
     *
     * @return the middle point object
@@ -70,7 +70,7 @@ public class Line {
    }
 
    /**
-    * helper method to check if line is vertical by checking if x change is 0
+    * helper method to check if line is vertical by checking if x change is 0.
     *
     * @return true if vertical, otherwise false
     */
@@ -79,7 +79,7 @@ public class Line {
    }
 
    /**
-    * helper method to calculate the "infinite" line slope of the line segmant
+    * helper method to calculate the "infinite" line slope of the line segmant.
     * using the slope formula
     *
     * @return the value of the slope
@@ -89,7 +89,7 @@ public class Line {
    }
 
    /***
-    * helper method to calculate the y-intercept of the "infinite" line
+    * helper method to calculate the y-intercept of the "infinite" line.
     * representive of the line segmant using the formula
     *
     * @return the y intercept of the line
@@ -99,17 +99,17 @@ public class Line {
    }
 
    /**
-    * helper method to check if a certain point sits on a line
+    * helper method to check if a certain point sits on a line.
     *
     * @param x coordinate of the point
     * @param y coordinate of the point
     * @return true if the point is on the line, otherwise false
     */
    private boolean isPointOnLine(double x, double y) {
-      return x >= (Math.min(this.start.getX(), this.end.getX()) - EPSILON) &&
-            y >= (Math.min(this.start.getY(), this.end.getY()) - EPSILON) &&
-            x <= (Math.max(this.start.getX(), this.end.getX()) + EPSILON) &&
-            y <= (Math.max(this.start.getY(), this.end.getY()) + EPSILON);
+      return x >= (Math.min(this.start.getX(), this.end.getX()) - EPSILON)
+             && y >= (Math.min(this.start.getY(), this.end.getY()) - EPSILON)
+             && x <= (Math.max(this.start.getX(), this.end.getX()) + EPSILON)
+             && y <= (Math.max(this.start.getY(), this.end.getY()) + EPSILON);
    }
 
    /**
@@ -126,17 +126,17 @@ public class Line {
          return true;
       } else {
          if (this.isVertical() && other.isVertical()) {
-            return this.isPointOnLine(other.start.getX(), other.start.getY()) ||
-                  this.isPointOnLine(other.end.getX(), other.end.getY()) ||
-                  other.isPointOnLine(this.start.getX(), this.start.getY()) ||
-                  other.isPointOnLine(this.end.getX(), this.end.getY());
+            return this.isPointOnLine(other.start.getX(), other.start.getY())
+                  || this.isPointOnLine(other.end.getX(), other.end.getY())
+                  || other.isPointOnLine(this.start.getX(), this.start.getY())
+                  || other.isPointOnLine(this.end.getX(), this.end.getY());
          } else {
             if (Math.abs(this.slope() - other.slope()) < EPSILON &&
                   Math.abs(this.yintercept() - other.yintercept()) < EPSILON) {
-               return this.isPointOnLine(other.start.getX(), other.start.getY()) ||
-                     this.isPointOnLine(other.end.getX(), other.end.getY()) ||
-                     other.isPointOnLine(this.start.getX(), this.start.getY()) ||
-                     other.isPointOnLine(this.end.getX(), this.end.getY());
+               return this.isPointOnLine(other.start.getX(), other.start.getY())
+                     || this.isPointOnLine(other.end.getX(), other.end.getY())
+                     || other.isPointOnLine(this.start.getX(), this.start.getY())
+                     || other.isPointOnLine(this.end.getX(), this.end.getY());
             }
          }
       }
@@ -144,7 +144,7 @@ public class Line {
    }
 
    /**
-    * Checks wether a line is intersecting with two other lines
+    * Checks wether a line is intersecting with two other lines.
     *
     * @param other1 the first line to compare to
     * @param other2 the second line to compare to
@@ -213,7 +213,7 @@ public class Line {
     *         otherwise
     */
    public boolean equals(Line other) {
-      return (this.start.equals(other.start) && this.end.equals(other.end)) ||
-            (this.start.equals(other.end) && this.end.equals(other.start));
+      return (this.start.equals(other.start) && this.end.equals(other.end))
+            || (this.start.equals(other.end) && this.end.equals(other.start));
    }
 }

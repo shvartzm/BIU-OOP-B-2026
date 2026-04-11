@@ -22,27 +22,29 @@ public class AbstractArtDrawing {
             Point middlePoint = l1.middle();
             paintCircle(d,middlePoint.getX(),middlePoint.getY(), 3, Color.BLUE);
         }
-        drawIntersectionPoints(d);
+        paintIntersectionPoints(d);
+        paintTriangles(d);
         gui.show(d);
     }
 
-    private void drawIntersectionPoints(DrawSurface d){
+    private void paintIntersectionPoints(DrawSurface d){
+        for(int i = 0; i <= lines.length -2; i++){
+            for (int j = i + 1; j <= lines.length - 1; j++){
+                    Point p1 = lines[i].intersectionWith(lines[j]);
+                    if (p1 != null){
+                        paintCircle(d, p1.getX(), p1.getY(), 3, Color.RED);
+                }
+            }
+        }
+    }
+    private void paintTriangles(DrawSurface d){
         for(int i = 0; i <= lines.length -3; i++){
             for (int j = i + 1; j <= lines.length - 2; j++){
                 for (int k = j + 1; k < lines.length; k++){
                     Point p1 = lines[i].intersectionWith(lines[j]);
                     Point p2 = lines[i].intersectionWith(lines[k]);
                     Point p3 = lines[j].intersectionWith(lines[k]);
-                    if (p1 != null){
-                        paintCircle(d, p1.getX(), p1.getY(), 3, Color.RED);
-                    }
-                    if(p2 != null){
-                        paintCircle(d, p2.getX(), p2.getY(), 3, Color.RED);
-                    }
-                    if(p3 != null){
-                        paintCircle(d, p3.getX(), p3.getY(), 3, Color.RED);
-                    }
-                    if (p1 != null && p2 != null && p3 != null && lines[i].isIntersecting(lines[k], lines[j])){
+                    if (p1 != null && p2 != null && p3 != null){
                         paintLine(d, p1.getX(), p1.getY(), p2.getX(), p2.getY(), Color.GREEN);
                         paintLine(d, p1.getX(), p1.getY(), p3.getX(), p3.getY(), Color.GREEN);
                         paintLine(d, p3.getX(), p3.getY(), p2.getX(), p2.getY(), Color.GREEN);

@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "biuoop-1.4.jar"
+        "biuoop-1.4.jar",
+        "ass1/biuoop-1.4.jar"
     ]
 }

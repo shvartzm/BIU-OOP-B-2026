@@ -88,7 +88,7 @@ public class Line {
       return (this.end.getY() - this.start.getY()) / (this.end.getX() - this.start.getX());
    }
 
-   /***
+   /**
     * Helper method to calculate the y-intercept of the "infinite" line.
     * representive of the line segmant using the formula.
     * @return the y intercept of the line

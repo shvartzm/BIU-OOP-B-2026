@@ -20,7 +20,7 @@ public class Point {
   }
 
   /**
-   * uses the x and y coordinates from the two points and uses the distance
+   * uses the x and y coordinates from the two points and uses the distance.
    * formula
    * d = sqrt((x1-x2)^2 + (y1-y2)^2)
    *

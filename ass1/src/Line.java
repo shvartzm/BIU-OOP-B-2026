@@ -126,8 +126,8 @@ public class Line {
          return true;
       } else {
          if (this.isVertical() && other.isVertical()) {
-            return this.isPointOnLine(other.start.getX(), other.start.getY())
-                  || this.isPointOnLine(other.end.getX(), other.end.getY()) ||
+            return this.isPointOnLine(other.start.getX(), other.start.getY()) ||
+                  this.isPointOnLine(other.end.getX(), other.end.getY()) ||
                   other.isPointOnLine(this.start.getX(), this.start.getY()) ||
                   other.isPointOnLine(this.end.getX(), this.end.getY());
          } else {
@@ -213,7 +213,7 @@ public class Line {
     *         otherwise
     */
    public boolean equals(Line other) {
-      return (this.start.equals(other.start) && this.end.equals(other.end))
-            || (this.start.equals(other.end) && this.end.equals(other.start));
+      return (this.start.equals(other.start) && this.end.equals(other.end)) ||
+            (this.start.equals(other.end) && this.end.equals(other.start));
    }
 }
